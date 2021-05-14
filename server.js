@@ -8,7 +8,8 @@ const express = require('express'),
     MONGO_USER = process.env.MONGO_USER,
     MONGO_PW = process.env.MONGO_PW,
     MONGO_DB = process.env.MONGO_DB,
-    URI = `mongodb+srv://${MONGO_USER}:${MONGO_PW}@${MONGO_DB}.hu5em.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+    URI = `mongodb+srv://${MONGO_USER}:${MONGO_PW}@${MONGO_DB}.hu5em.mongodb.net/Becode?retryWrites=true&w=majority`,
+    Message = mongoose.model('Message', { name: String, message: String });
 
 
 app.use(express.static(__dirname));
@@ -23,4 +24,4 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err)
     console.log('DB connected')
 });
 
-const Message = mongoose.model('Message', { name: String, message: String });
+require('./routes/messages')
