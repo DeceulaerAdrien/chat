@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express'),
     app = express(),
-    PORT = 5000,
+    PORT = 80,
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     MONGO_USER = process.env.MONGO_USER,
@@ -42,6 +42,6 @@ io.on('connection', () => {
     console.log('a user is connected')
 })
 
-const server = http.listen(5000, () => {
+const server = http.listen(PORT, () => {
     console.log(`server running on port ${PORT}`)
 });
