@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/DeceulaerAdrien/chat.git"
   },
+  "scripts": {
+    "start": "node server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
