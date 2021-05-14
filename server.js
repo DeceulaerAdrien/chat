@@ -14,17 +14,9 @@ const express = require('express'),
     io = require('socket.io')(http);
 
 
-
-
-
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
-mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
-    console.log('DB connected')
-});
 
 app.get('/messages', (req, res) => {
     Message.find({}, (err, messages) => {
@@ -40,6 +32,10 @@ app.post('/messages', (req, res) => {
         io.emit('message', req.body);
         res.sendStatus(200);
     })
+});
+
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+    console.log('DB connected')
 });
 
 io.on('connection', () => {
