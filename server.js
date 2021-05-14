@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express'),
     app = express(),
-    PORT = 80,
+    PORT = 5000,
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     MONGO_USER = process.env.MONGO_USER,
@@ -20,7 +20,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const server = app.listen(80, () => {
+const server = app.listen(5000, () => {
     console.log(`server running on port ${PORT}`)
 });
 
