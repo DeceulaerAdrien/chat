@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express'),
     app = express(),
-    PORT = 5000,
+    PORT = 80,
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     MONGO_USER = process.env.MONGO_USER,
@@ -20,12 +20,16 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const server = app.listen(5000, () => {
+const server = app.listen(80, () => {
     console.log(`server running on port ${PORT}`)
 });
 
 mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     console.log('DB connected')
+});
+
+io.on('connection', () => {
+    console.log('a user is connected')
 });
 
 app.get('/messages', (req, res) => {
@@ -39,6 +43,7 @@ app.post('/messages', (req, res) => {
     message.save((err) => {
         if (err)
             sendStatus(500);
+        io.emit('message', req.body);
         res.sendStatus(200);
     })
 });
