@@ -12,9 +12,11 @@ const express = require('express'),
     Message = mongoose.model('Message', { name: String, message: String });
 
 
+
+
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const server = app.listen(5000, () => {
     console.log(`server running on port ${PORT}`)
@@ -24,4 +26,17 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err)
     console.log('DB connected')
 });
 
-require('./routes/messages')
+app.get('/messages', (req, res) => {
+    Message.find({}, (err, messages) => {
+        res.send(messages);
+    })
+});
+
+app.post('/messages', (req, res) => {
+    const message = new Message(req.body);
+    message.save((err) => {
+        if (err)
+            sendStatus(500);
+        res.sendStatus(200);
+    })
+});
