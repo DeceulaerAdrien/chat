@@ -9,7 +9,9 @@ const express = require('express'),
     MONGO_PW = process.env.MONGO_PW,
     MONGO_DB = process.env.MONGO_DB,
     URI = `mongodb+srv://${MONGO_USER}:${MONGO_PW}@${MONGO_DB}.hu5em.mongodb.net/Becode?retryWrites=true&w=majority`,
-    Message = mongoose.model('Message', { name: String, message: String });
+    Message = mongoose.model('Message', { name: String, message: String }),
+    http = require('http').Server(app),
+    io = require('socket.io')(http);
 
 
 
