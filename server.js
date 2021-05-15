@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express'),
     app = express(),
-    PORT = process.env.PORT || 80,
+    PORT = process.env.PORT,
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     MONGO_USER = process.env.MONGO_USER,
