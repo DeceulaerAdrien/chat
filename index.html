@@ -57,7 +57,8 @@
 
             function getMessages() {
                 $.get('https://vast-refuge-24395.herokuapp.com/messages', (data) => {
-                    data.JSON.parse().forEach(addMessages);
+                    data = JSON.parse(data);
+                    data.forEach(addMessages);
                 })
             };
             function sendMessage(message) {
