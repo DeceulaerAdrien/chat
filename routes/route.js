@@ -32,7 +32,6 @@ getMessages = () => {
     XHR.send();
 };
 sendMessage = (message) => {
-    let XHR = new XMLHttpRequest;
     XHR.open('POST', 'https://localhost/messages', true);
     XHR.onload = () => {
         if (this.status === 200) {
