@@ -18,11 +18,11 @@
 
 ## Missions : 
 
-We have to make a real time chat using node.js , express.js and socket.io 
+We have to make a real time chat using node.js , express.js and socket.io
 
-step 1 : Register.
-step 2 : login/logout.
-step 3 : message.
+step 1 : Register
+step 2 : login/logout
+step 3 : message
 
 
 [link]()
