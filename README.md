@@ -4,10 +4,14 @@
 
 ## Members : 
 
-[adrien](https://github.com/DeceulaerAdrien)
+[adrien](https://github.com/DeceulaerAdrien).
+
 [laura](https://github.com/Laura-VLN)
+
 [nadja](https://github.com/Nadja-BeCode)
+
 [natalia](https://github.com/nataliacherman08)
+
 [zakaria](https://github.com/ZakariaSelassi)
 
 ## Objectives : 
@@ -20,9 +24,11 @@
 
 We have to make a real time chat using node.js , express.js and socket.io
 
-step 1 : Register
-step 2 : login/logout
-step 3 : message
+Steps : 
+
+- Register
+- login/logout
+- message
 
 
 [link]()
