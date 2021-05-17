@@ -56,12 +56,12 @@
             };
 
             function getMessages() {
-                $.get('http://vast-refuge-24395.herokuapp.com/messages', (data) => {
+                $.get('https://vast-refuge-24395.herokuapp.com/messages', (data) => {
                     data.forEach(addMessages);
                 })
             };
             function sendMessage(message) {
-                $.post('http://vast-refuge-24395.herokuapp.com/messages', message)
+                $.post('https://vast-refuge-24395.herokuapp.com/messages', message)
             };
 
             const socket = io();
